@@ -1,4 +1,14 @@
-# Deprecated, no longer maintainted
+# DO NOT REMOVE THIS REPO:
+
+- Used by leo#vineti-global:package.json
+- branch used v1.4.4-upgraded-foreman-dist
+
+# Generating a dist branch. 
+- checkout commit from master
+- `npm i` on node `v7.10.0`
+- `gulp build` to generate dist directory.
+- create a dist branch with just the contents of `dist` directory, Eg: `v1.4.4-upgraded-foreman-dist` is created from dist directory of `v1.4.4-upgraded-foreman`
+- Update `vineti-global:package.json`
 
 # Tools for gulp tasks for React
 
