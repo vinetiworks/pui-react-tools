@@ -73,7 +73,7 @@ const Assets = {
       .pipe(plugins.sass({errLogToConsole: true}))
       .pipe(plugins.autoprefixer())
       .pipe(plugins.cond(!isProduction(), () => plugins.sourcemaps.write()))
-      .pipe(plugins.cond(isProduction(), () => plugins.cssnano()));
+      .pipe(plugins.cond(isProduction(), () => plugins.postcss()));
   },
 
   images({watch = false} = {}) {

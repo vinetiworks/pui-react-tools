@@ -90,7 +90,7 @@ var Assets = {
     })).pipe(plugins.sass({ errLogToConsole: true })).pipe(plugins.autoprefixer()).pipe(plugins.cond(!isProduction(), function () {
       return plugins.sourcemaps.write();
     })).pipe(plugins.cond(isProduction(), function () {
-      return plugins.cssnano();
+      return plugins.postcss();
     }));
   },
   images: function images() {
