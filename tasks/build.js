@@ -1,7 +1,6 @@
 const del = require('del');
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
-const runSequence = require('run-sequence');
 
 gulp.task('copy-css', () => {
   return gulp.src(['src/**/*.css'], { base: 'src' }).pipe(gulp.dest('dist'));

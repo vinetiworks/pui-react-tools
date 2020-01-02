@@ -7022,11 +7022,6 @@
       "from": "run-async@>=0.1.0 <0.2.0",
       "resolved": "https://registry.npmjs.org/run-async/-/run-async-0.1.0.tgz"
     },
-    "run-sequence": {
-      "version": "1.2.2",
-      "from": "run-sequence@>=1.2.2 <2.0.0",
-      "resolved": "https://registry.npmjs.org/run-sequence/-/run-sequence-1.2.2.tgz"
-    },
     "rx-lite": {
       "version": "3.1.2",
       "from": "rx-lite@>=3.1.2 <4.0.0",
