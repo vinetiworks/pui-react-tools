@@ -56,9 +56,10 @@ var Lint = {
 
   tasks: {
     lint: function lint() {
-      return function () {
+      return function (done) {
         var globs = Lint.installOptions.globs;
-        return gulp.src(globs, { base: '.' }).pipe(Lint.lint());
+        gulp.src(globs, { base: '.' }).pipe(Lint.lint());
+        done();
       };
     }
   }
