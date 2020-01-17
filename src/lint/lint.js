@@ -1,9 +1,8 @@
 const { plumber, eslint, if: gulpIf } = require('gulp-load-plugins')();
 const lazypipe = require('lazypipe');
-const gulp = require('gulp');
 const { log, colors } = require('gulp-util');
 
-function lint() {
+function lint(gulp) {
   const { FIX: fix = true } = process.env;
   return lazypipe()
     .pipe(() => plumber())
@@ -26,7 +25,8 @@ function lint() {
 const Lint = {
   install(installOptions = {}) {
     Object.assign(Lint.installOptions, installOptions);
-    gulp.task('lint', Lint.tasks.lint());
+    let gulp = installOptions.gulp
+    gulp.task('lint', Lint.tasks.lint(gulp));
   },
 
   installOptions: {
@@ -41,13 +41,13 @@ const Lint = {
     ]
   },
 
-  lint: lint(),
+  lint: (gulp) => lint(gulp)(),
 
   tasks: {
-    lint() {
+    lint(gulp) {
       return function(done) {
         const globs = Lint.installOptions.globs;
-        gulp.src(globs, { base: '.' }).pipe(Lint.lint());
+        gulp.src(globs, { base: '.' }).pipe(Lint.lint(gulp));
         done();
       };
     }
