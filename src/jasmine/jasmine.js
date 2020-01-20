@@ -32,7 +32,7 @@ const Jasmine = {
     Object.assign(Jasmine.installOptions, installOptions);
     gulp.task('jasmine', Jasmine.tasks.jasmine);
 
-    gulp.task('spec-app', () => {
+    gulp.task('spec-app', (done) => {
       Jasmine.tasks.specApp(done);
     });
 
