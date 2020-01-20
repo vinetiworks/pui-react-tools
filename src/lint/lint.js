@@ -1,3 +1,4 @@
+const requiredGulp = require('gulp');
 const { plumber, eslint, if: gulpIf } = require('gulp-load-plugins')();
 const lazypipe = require('lazypipe');
 const { log, colors } = require('gulp-util');
@@ -25,7 +26,7 @@ function lint(gulp) {
 const Lint = {
   install(installOptions = {}) {
     Object.assign(Lint.installOptions, installOptions);
-    let gulp = installOptions.gulp
+    let gulp = installOptions.gulp || requiredGulp;
     gulp.task('lint', Lint.tasks.lint(gulp));
   },
 
@@ -41,7 +42,7 @@ const Lint = {
     ]
   },
 
-  lint: (gulp) => lint(gulp)(),
+  lint: gulp => lint(gulp)(),
 
   tasks: {
     lint(gulp) {
