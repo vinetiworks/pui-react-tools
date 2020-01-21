@@ -33,17 +33,18 @@ const Assets = {
 
     gulp.task('assets', gulp.series('clean-assets', Assets.tasks.assets));
 
-    // gulp.task('assets', ['clean-assets'], Assets.tasks.assets);
+    gulp.task('clean-assets-html', Assets.tasks.cleanAssetsHtml);
 
-    // gulp.task('clean-assets-html', Assets.tasks.cleanAssetsHtml);
+    gulp.task(
+      'assets-html',
+      gulp.series('clean-assets-html', Assets.tasks.assetsHtml)
+    );
 
-    // gulp.task('assets-html', ['clean-assets-html'], Assets.tasks.assetsHtml);
+    gulp.task('assets-config', Assets.tasks.assetsConfig);
 
-    // gulp.task('assets-config', Assets.tasks.assetsConfig);
-
-    // if (Assets.installOptions.useAssetsServer) {
-    //   gulp.task('assets-server', Assets.tasks.assetsServer);
-    // }
+    if (Assets.installOptions.useAssetsServer) {
+      gulp.task('assets-server', Assets.tasks.assetsServer);
+    }
   },
 
   installOptions: {
@@ -256,8 +257,10 @@ const Assets = {
 
     assetsServer: require('./assets_server'),
 
-    assetsConfig() {
+    assetsConfig(done) {
+      const gulp = Assets.installOptions.gulp || requiredGulp;
       Assets.config().pipe(gulp.dest(Assets.installOptions.buildDirectory));
+      done();
     }
   }
 };
