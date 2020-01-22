@@ -48,8 +48,7 @@ const Lint = {
     lint(gulp) {
       return function(done) {
         const globs = Lint.installOptions.globs;
-        gulp.src(globs, { base: '.' }).pipe(Lint.lint(gulp));
-        done();
+        gulp.src(globs, { base: '.' }).pipe(Lint.lint(gulp)).on('end', done);
       };
     }
   }
