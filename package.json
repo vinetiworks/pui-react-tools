@@ -76,14 +76,15 @@
     "webpack-stream": "^3.2.0"
   },
   "scripts": null,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pivotal-cf/pui-react-tools.git"
+  "engines": {
+    "node": "10.18.1",
+    "npm": "6.13.4"
   },
   "author": "Pivotal",
+  "contributors": [
+    "Pivotal",
+    "Vineti"
+  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pivotal-cf/pui-react-tools/issues"
-  },
-  "homepage": "https://github.com/pivotal-cf/pui-react-tools"
+  "homepage": "https://github.com/vinetiworks/pui-react-tools"
 }
